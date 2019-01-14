@@ -11,7 +11,7 @@ use Math::Trig;
 use POSIX;
 use Data::Dumper;
 
-use constant milliseconds => 1000;
+use constant MILLISECONDS => 1000;
 
 my $fh;
 
@@ -51,18 +51,18 @@ print "Mars: ", join( ", ", @{ $data->{"Mars"} }{@header} ), "\n";
 my $dt = DateTime->new( year => 2000, month => 1, day => 1 );
 my $now = DateTime->now();
 
-my @l1 = ( 0, 0, 0, 1, 0, 100 );    # time_t
+my @l1 = ( 0, 0, 0, 1, 0, 100 );    # time_t This should be Jan 1, 2000
 my $t1 = POSIX::mktime(@l1);
-print "mktime: ", POSIX::ctime($t1);
+print "\n";
 print "localtime: ", join( ", ", @l1 ), "\n";
+print "mktime: ", POSIX::ctime($t1);
 my $t2 = time;
 my @l2 = localtime($t2);            # time_t
-
-print "time: ", POSIX::ctime($t2);
 print "localtime: ", join( ", ", @l2 ), "\n";
+print "time: ", POSIX::ctime($t2);
 
 my $duration = $now->subtract_datetime($dt);
-my $milli    = time * milliseconds;
+my $milli    = time * MILLISECONDS;
 print $milli, "\n";
 
 print $duration->in_units('seconds'), "\n";
