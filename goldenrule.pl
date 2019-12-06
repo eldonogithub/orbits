@@ -11,7 +11,7 @@ my $i;
 while ( 1 ) {
   $i++;
 
-  print "$i $prev\n";
+  printf "%d: %.20f\n", $i , $prev;
   $next = 1 + 1.0 / ( $prev ) ;
   if ( $next == $prev ) {
     last;
