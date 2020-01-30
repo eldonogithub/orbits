@@ -244,5 +244,5 @@ sub triangle2 {
 }
 
 #square();
-#hexagon();
-triangle2();
+hexagon();
+# triangle2();
